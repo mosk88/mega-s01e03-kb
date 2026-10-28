@@ -5,7 +5,8 @@
   import { tenantOf } from '#lib/kb/locales';
 
   // One row per problem merged into the ticket, with the issue that now tracks it.
-  // A report the desk read as a one-day move (desk-notes.json) is not a flipped date: it counts there, not under its cause.
+  // Counted the desk's way (CauseTable): a report the desk read as a one-day move (desk-notes.json) stays counted
+  // under the cause it is filed by, and also counts as a shift.
   let { ticket, issues }: { ticket: number; issues: Record<'parser' | 'hint' | 'shift', string> } = $props();
 
   type Problem = keyof typeof issues;
@@ -16,12 +17,12 @@
   };
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
-  const problemOf = (r: Report): Problem | 'unplaced' =>
-    notes.oneDayMove.includes(r.id) ? 'shift' : (causeOf(r, tenantOf(r)) ?? 'unplaced');
+  const inProblem = (r: Report, p: Problem | 'unplaced'): boolean =>
+    p === 'shift' ? notes.oneDayMove.includes(r.id) : (causeOf(r, tenantOf(r)) ?? 'unplaced') === p;
   const rows = $derived(
     (['parser', 'hint', 'shift', 'unplaced'] as const)
       .map((p) => {
-        const rs = merged.filter((r) => problemOf(r) === p);
+        const rs = merged.filter((r) => inProblem(r, p));
         const days = rs.map((r) => r.receivedAt.slice(0, 10)).sort();
         return { p, n: rs.length, tenants: new Set(rs.map((r) => r.tenant)).size, first: days[0], last: days[days.length - 1] };
       })
@@ -45,6 +46,8 @@
     {/each}
   </tbody>
 </table>
+
+<p class="what">The {merged.filter((r) => notes.oneDayMove.includes(r.id)).length} <code>shift</code> reports are also counted under the cause they are filed by, as the desk counts them.</p>
 
 <style>
   .sum { font-size: 1.1rem; }

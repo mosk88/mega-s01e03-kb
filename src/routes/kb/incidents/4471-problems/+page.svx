@@ -54,12 +54,13 @@ Intake cannot tell the two apart. It tags from the reporter's browser, so it tag
 These reports are not flipped dates. Tuesday 12 May shows as Monday 11 May. A meeting in Lisbon
 lands on Tuesday and the same meeting in Toronto on Monday. An invite arrives before its booking.
 This points to a time zone being dropped or applied twice. The desk read these reports as a
-one-day move (`desk-notes.json`) but still filed them under the parser by tenant.
+one-day move (`desk-notes.json`) but still filed them under the parser by tenant, and the desk
+counts them there too.
 
 ## How each report is placed
 
 `causes.ts` places each report by its tenant: the locale they write dates in, and the booking form
-they run. The desk's one-day-move notes take precedence over the cause. Here is the same data as
+they run. The desk's one-day-move notes add the `shift` problem on top. Here is the same data as
 the desk's cause table shows it:
 
 <CauseTable ticket={4471} />
