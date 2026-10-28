@@ -14,12 +14,12 @@ signature: mostafa.titah@eco-si.fr
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 </script>
 
-[#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. The reports merged into it
-describe three different problems. The queued parser fix closes only the first one. Each problem
-now has its own ticket.
+[#4471](/kb/incidents/4471) was merged as one issue and closed on 5 October. The reports merged into
+it describe three different problems. Engineering fixed the parser and retired the booking-v3 form.
+Nothing has been done about the third problem. Each problem has its own ticket.
 
 <Callout kind="warn">
-Fixing the parser will not close #4471. Reports for the other two problems keep coming after the fix ships.
+#4471 is closed, but the one-day shift is still open. Neither the parser fix nor retiring booking-v3 touches it. Keep reading those reports: they belong in issue #3, not in #4471.
 </Callout>
 
 ## The problems
@@ -31,20 +31,22 @@ Fixing the parser will not close #4471. Reports for the other two problems keep 
     hint: 'https://github.com/mosk88/mega-s01e03-kb/issues/2',
     shift: 'https://github.com/mosk88/mega-s01e03-kb/issues/3',
   }}
+  status={{ parser: 'fixed', hint: "won't fix", shift: 'open' }}
 />
 
 ### `parser`: the shared parser reads dates month first
 
 Every tenant on file writes the day before the month. The shared parser reads every date month
 first, so 7 April becomes 4 July. It reaches every tenant through every channel: app, email and
-form. The queued fix is for this problem.
+form. **Fixed** in engineering's change "fix(dates): parse dd/mm for eu locales".
 
 ### `hint`: booking-v3 tells day-first tenants to type the month first
 
 The booking-v3 form prints `MM/DD/YYYY` under its date field. The form then reads the date the
 tenant's way, day first. People type what the hint tells them, so their dates come out flipped.
 It only reaches tenants on booking-v3, and only through the form. The reports look the same as
-the parser's (day and month swapped), but the fix is in the form's hint, not the parser.
+the parser's (day and month swapped), but the fix is in the form's hint, not the parser. **Won't fix**: engineering
+retired booking-v3, so the hint is gone with it.
 
 Intake cannot tell the two apart. It tags from the reporter's browser, so it tags `hint` for an
 `en-US` browser and `parser` otherwise. The tenant decides the cause, not the browser.
@@ -53,7 +55,8 @@ Intake cannot tell the two apart. It tags from the reporter's browser, so it tag
 
 These reports are not flipped dates. Tuesday 12 May shows as Monday 11 May. A meeting in Lisbon
 lands on Tuesday and the same meeting in Toronto on Monday. An invite arrives before its booking.
-This points to a time zone being dropped or applied twice. The desk read these reports as a
+This points to a time zone being dropped or applied twice. **Still open**: no change so far
+covers it. The desk read these reports as a
 one-day move (`desk-notes.json`) but still filed them under the parser by tenant, and the desk
 counts them there too.
 

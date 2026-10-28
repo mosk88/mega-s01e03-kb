@@ -7,7 +7,11 @@
   // One row per problem merged into the ticket, with the issue that now tracks it.
   // Counted the desk's way (CauseTable): a report the desk read as a one-day move (desk-notes.json) stays counted
   // under the cause it is filed by, and also counts as a shift.
-  let { ticket, issues }: { ticket: number; issues: Record<'parser' | 'hint' | 'shift', string> } = $props();
+  let {
+    ticket,
+    issues,
+    status,
+  }: { ticket: number; issues: Record<'parser' | 'hint' | 'shift', string>; status: Record<'parser' | 'hint' | 'shift', string> } = $props();
 
   type Problem = keyof typeof issues;
   const WHAT: Record<Problem, string> = {
@@ -33,7 +37,7 @@
 <p class="sum"><strong>{merged.length}</strong> reports merged into #{ticket} · <strong>{rows.length}</strong> problems</p>
 
 <table>
-  <thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead>
+  <thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>status</th></tr></thead>
   <tbody>
     {#each rows as row (row.p)}
       <tr>
@@ -42,6 +46,7 @@
         <td>{row.tenants}</td>
         <td>{row.first} → {row.last}</td>
         <td>{#if row.p !== 'unplaced'}<a href={issues[row.p]}>{issues[row.p].replace(/^.*\/issues\//, 'issue #')}</a>{:else}none{/if}</td>
+        <td class:open={row.p !== 'unplaced' && status[row.p] === 'open'}>{row.p === 'unplaced' ? '' : status[row.p]}</td>
       </tr>
     {/each}
   </tbody>
@@ -52,4 +57,5 @@
 <style>
   .sum { font-size: 1.1rem; }
   .what { color: var(--muted); font-size: 0.85em; }
+  .open { color: var(--warn); font-weight: 600; }
 </style>

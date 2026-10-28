@@ -7,35 +7,37 @@
 		<link href="../../_app/immutable/assets/runbook.9BJ9BomY.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/Callout.89E4ZsOX.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/CauseTable.AZcnZ4nk.css" rel="stylesheet">
-		<link href="../../_app/immutable/assets/5.B4DPobDV.css" rel="stylesheet">
-		<link rel="modulepreload" href="../../_app/immutable/entry/start.DnDefsUw.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/By3Iw-e0.js">
+		<link href="../../_app/immutable/assets/5._JngTucm.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.DzdK9vge.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CuGgDabF.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/jXJNQ-GC.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/ChKYhQWN.js">
-		<link rel="modulepreload" href="../../_app/immutable/entry/app.yBJlOxxB.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.GwLPl9wg.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/CiRZ3AaZ.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/CoYbHEf8.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BcQYbbZu.js">
 		<link rel="modulepreload" href="../../_app/immutable/nodes/0.CMlFo4LU.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/DfRpRldR.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/5.wdeu6PvC.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/Cwrq00oa.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/5.PeO1dK5h.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BI0-9JId.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Bdqdinto.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/XR1CmM1r.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Ci_F_l6f.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/vbE3QlXI.js"><!--[--><!--]--><title>#4471 · three problems, not one · support kb</title>
   </head>
   <body>
-    <div style="display: contents"><!--[--><!--[--><!----><!----><div class="kb svelte-60g32v"><header><a class="crumb svelte-60g32v" href="/kb">support desk · kb</a> <h1 class="svelte-60g32v">#4471 · three problems, not one</h1> <p class="meta svelte-60g32v"><span>owner <b>support desk</b></span> <span class="status open svelte-60g32v">open</span> <span class="svelte-60g32v">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[!--><!--]--> <main><p><a href="/kb/incidents/4471">#4471</a> is marked known: one issue, one fix queued. The reports merged into it
-describe three different problems. The queued parser fix closes only the first one. Each problem
-now has its own ticket.</p> <aside class="warn svelte-hdh0t2"><!---->Fixing the parser will not close #4471. Reports for the other two problems keep coming after the fix ships.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-1sryqf2"><strong>412</strong> reports merged into #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr><td><code>parser</code><br><span class="what svelte-1sryqf2">shared parser reads day-first dates month first</span></td><td>379</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/1">issue #1</a><!--]--></td></tr><tr><td><code>hint</code><br><span class="what svelte-1sryqf2">booking-v3 form hints MM/DD/YYYY to day-first tenants</span></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/2">issue #2</a><!--]--></td></tr><tr><td><code>shift</code><br><span class="what svelte-1sryqf2">date moves by one day (time zone)</span></td><td>5</td><td>5</td><td>2026-04-02 → 2026-10-04</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/3">issue #3</a><!--]--></td></tr><!--]--></tbody></table> <p class="what svelte-1sryqf2">The 5 <code>shift</code> reports are also counted under the cause they are filed by, as the desk counts them.</p><!----> <h3><code>parser</code>: the shared parser reads dates month first</h3> <p>Every tenant on file writes the day before the month. The shared parser reads every date month
+    <div style="display: contents"><!--[--><!--[--><!----><!----><div class="kb svelte-60g32v"><header><a class="crumb svelte-60g32v" href="/kb">support desk · kb</a> <h1 class="svelte-60g32v">#4471 · three problems, not one</h1> <p class="meta svelte-60g32v"><span>owner <b>support desk</b></span> <span class="status open svelte-60g32v">open</span> <span class="svelte-60g32v">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[!--><!--]--> <main><p><a href="/kb/incidents/4471">#4471</a> was merged as one issue and closed on 5 October. The reports merged into
+it describe three different problems. Engineering fixed the parser and retired the booking-v3 form.
+Nothing has been done about the third problem. Each problem has its own ticket.</p> <aside class="warn svelte-hdh0t2"><!---->#4471 is closed, but the one-day shift is still open. Neither the parser fix nor retiring booking-v3 touches it. Keep reading those reports: they belong in issue #3, not in #4471.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-14tk03t"><strong>412</strong> reports merged into #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>status</th></tr></thead><tbody><!--[--><tr><td><code>parser</code><br><span class="what svelte-14tk03t">shared parser reads day-first dates month first</span></td><td>379</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/1">issue #1</a><!--]--></td><td class="svelte-14tk03t">fixed</td></tr><tr><td><code>hint</code><br><span class="what svelte-14tk03t">booking-v3 form hints MM/DD/YYYY to day-first tenants</span></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/2">issue #2</a><!--]--></td><td class="svelte-14tk03t">won't fix</td></tr><tr><td><code>shift</code><br><span class="what svelte-14tk03t">date moves by one day (time zone)</span></td><td>5</td><td>5</td><td>2026-04-02 → 2026-10-04</td><td><!--[--><a href="https://github.com/mosk88/mega-s01e03-kb/issues/3">issue #3</a><!--]--></td><td class="svelte-14tk03t open">open</td></tr><!--]--></tbody></table> <p class="what svelte-14tk03t">The 5 <code>shift</code> reports are also counted under the cause they are filed by, as the desk counts them.</p><!----> <h3><code>parser</code>: the shared parser reads dates month first</h3> <p>Every tenant on file writes the day before the month. The shared parser reads every date month
 first, so 7 April becomes 4 July. It reaches every tenant through every channel: app, email and
-form. The queued fix is for this problem.</p> <h3><code>hint</code>: booking-v3 tells day-first tenants to type the month first</h3> <p>The booking-v3 form prints <code>MM/DD/YYYY</code> under its date field. The form then reads the date the
+form. <strong>Fixed</strong> in engineering’s change “fix(dates): parse dd/mm for eu locales”.</p> <h3><code>hint</code>: booking-v3 tells day-first tenants to type the month first</h3> <p>The booking-v3 form prints <code>MM/DD/YYYY</code> under its date field. The form then reads the date the
 tenant’s way, day first. People type what the hint tells them, so their dates come out flipped.
 It only reaches tenants on booking-v3, and only through the form. The reports look the same as
-the parser’s (day and month swapped), but the fix is in the form’s hint, not the parser.</p> <p>Intake cannot tell the two apart. It tags from the reporter’s browser, so it tags <code>hint</code> for an <code>en-US</code> browser and <code>parser</code> otherwise. The tenant decides the cause, not the browser.</p> <h3><code>shift</code>: the date moves by one day</h3> <p>These reports are not flipped dates. Tuesday 12 May shows as Monday 11 May. A meeting in Lisbon
+the parser’s (day and month swapped), but the fix is in the form’s hint, not the parser. <strong>Won’t fix</strong>: engineering
+retired booking-v3, so the hint is gone with it.</p> <p>Intake cannot tell the two apart. It tags from the reporter’s browser, so it tags <code>hint</code> for an <code>en-US</code> browser and <code>parser</code> otherwise. The tenant decides the cause, not the browser.</p> <h3><code>shift</code>: the date moves by one day</h3> <p>These reports are not flipped dates. Tuesday 12 May shows as Monday 11 May. A meeting in Lisbon
 lands on Tuesday and the same meeting in Toronto on Monday. An invite arrives before its booking.
-This points to a time zone being dropped or applied twice. The desk read these reports as a
+This points to a time zone being dropped or applied twice. <strong>Still open</strong>: no change so far
+covers it. The desk read these reports as a
 one-day move (<code>desk-notes.json</code>) but still filed them under the parser by tenant, and the desk
 counts them there too.</p> <h2>How each report is placed</h2> <p><code>causes.ts</code> places each report by its tenant: the locale they write dates in, and the booking form
 they run. The desk’s one-day-move notes add the <code>shift</code> problem on top. Here is the same data as
@@ -46,15 +48,15 @@ that merges by cause.</p> <!--[--><p class="stamp svelte-5qojh0">desk ref <b cla
 			
 			<script>
 				{
-					__sveltekit_rk6o0s = {
+					__sveltekit_1c7pv78 = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.DnDefsUw.js"),
-						import("../../_app/immutable/entry/app.yBJlOxxB.js")
+						import("../../_app/immutable/entry/start.DzdK9vge.js"),
+						import("../../_app/immutable/entry/app.GwLPl9wg.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 5],
