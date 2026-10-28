@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: support desk
 status: open
 reviewed: 2026-10-28
-signature: mostafa.titah@eco-si.fr
+signature: 'v1.eyJzdWIiOiI0NTY3IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMjE4ODksImV4cCI6MTc5MzMwODI4OX0.Nc14GYuGgTrHc95WvDAtUGYOot7AWA8K10vzWKcIplc'
 ---
 
 <script>
